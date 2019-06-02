@@ -2,7 +2,6 @@
 ##Bibliotecas necessárias
 from prettytable import *
 import os
-
 ##Interface utilizada pelas classes
 class variavel():
     def calcular(self):

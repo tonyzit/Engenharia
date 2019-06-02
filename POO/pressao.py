@@ -2,9 +2,6 @@ from variavel import *
 
 class Pressao(variavel):
     ## Inicia os valores de area e pressão
-    def __init__(self):
-        self.area = 0.0
-        self.pressao = 0.0
         
     unidadesMedida = [' ', 'Kgf/cm^2', 'Ibf/pol^2', 'BAR',
                       'Pol Hg', 'Pol H2O', 'ATM', 'mmHg', 'mmH2O', 'kpa']
@@ -17,13 +14,17 @@ class Pressao(variavel):
                     0.00135, 0.019337, 0.00133, 0.03937, 0.5354, 0.001316, 1, 13.598, 0.13332,
                     0.000099, 0.00142, 0.00098, 0.00289, 0.03937, 0.00009, 0.07353, 1, 0.0098,
                     0.010197, 0.14504, 0.01, 0.29539, 4.0158, 0.009869, 7.50062, 101.998, 1]
-
+    ## Inicia os valores de area e pressão
+    def __init__(self):
+        self.area = 0.0
+        self.pressao = 0.0
+        
     def calcular(self, ver=0):
-        self.forca = float(input('Digite o valor da força exercida: '))
+        forca = float(input('Digite o valor da força exercida: '))
         while self.area == 0.0:
             self.area = float(
                 input('Forneça o valor da área em que a força irá atuar: '))
-        self.pressao = self.forca/self.area
+        self.pressao = forca/self.area
         if(ver == 1):
             return self.pressao
         print('Pressão: ', self.pressao)
@@ -50,15 +51,15 @@ class Pressao(variavel):
 #Classe para casos de pressão dinâmica
 class preDin(Pressao):
     def __init__(self):
-        self.presDin = 0.0
-    
-    def calcular():
+        self.pressao = 0.0
+        self.area = 0.0
+    def calcular(self):
         print("1. SIM\n0. NÃO\n")
         s = int(input("Possui o valor da pressão estática? "))
         if(s==1):
             pres = float(input("Digite o valor da pressão estática: "))
         elif(s==0):
-            pres = pressao.calcular(1)
+            pres = super().calcular(1) 
         vol = float(input("Digite o valor do volume: "))
-        pres = (pres*(vol**2))/2
-            
+        self.pressao = (pres*(vol**2))/2
+        print("Pressão dinamica: ", self.pressao)

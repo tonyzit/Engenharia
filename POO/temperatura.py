@@ -1,6 +1,6 @@
 from variavel import *
 
-class Temperatura(variavel):
+class Temperatura(variavel):       
     
     def converter(self):
         print("Digite o valor da temperatura e sua unidade original(Ex. 56 c): ")
@@ -15,7 +15,7 @@ class Temperatura(variavel):
             tempc = (temp-273)
         elif unidade == 'r':
             tempc = (temp - 491)/1.8
-        print("K : Kelvin\nC : Celsius\nF : Farenheit\nR : Rankine")
+        print("\nK : Kelvin\nC : Celsius\nF : Farenheit\nR : Rankine")
         print("Digite a unidade desejada de conversão: ")
         uniSaida = input().lower()
         if uniSaida == 'c':
@@ -25,5 +25,7 @@ class Temperatura(variavel):
         elif uniSaida == 'k':
             temp = tempc + 273
         elif uniSaida == 'r':
-            temp = temp * 1.8 + 491
-        print("{:.1f}".format(temp), uniSaida)
+            temp = tempc * 1.8 + 491
+        print("Teperatura: {:.1f}".format(temp), uniSaida)
+    
+        
